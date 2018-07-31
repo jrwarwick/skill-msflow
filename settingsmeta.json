@@ -1,0 +1,19 @@
+{
+    "name": "MS Flow Trigger",
+    "skillMetadata": {
+        "sections": [
+	    {
+		 "name": "Flow Settings",
+		 "fields": [
+                    {
+                        "name": "flow_trigger_url",
+                        "type": "text",
+                        "label": "Flow Trigger (of type 'Request') URL",
+                        "value": "",
+                        "placeholder": "http://host.domain.tld/path"
+                    }
+                ]
+            }		
+        ]
+    }
+}
