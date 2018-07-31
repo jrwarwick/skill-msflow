@@ -1,5 +1,5 @@
 import requests
-import commands
+import json
 from os.path import dirname, join
 
 from adapt.intent import IntentBuilder
@@ -36,10 +36,10 @@ class MSFlowSkill(MycroftSkill):
                    ]
                   }
 
-	response = requests.post(flow_trigger_url, data = json.dumps(payload))
-	data = {"response": response.reason.replace('OK','OKAY') + " " +
-		str(response.status_code)}
-	self.speak_dialog("ServerResponse", data)
+        response = requests.post(flow_trigger_url, data = json.dumps(payload))
+        data = {"response": response.reason.replace('OK','OKAY') + " " +
+        str(response.status_code)}
+        self.speak_dialog("SummaryResponse", data)
 
 
 def create_skill():
