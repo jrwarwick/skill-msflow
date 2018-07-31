@@ -32,11 +32,14 @@ class MSFlowSkill(MycroftSkill):
                      {"expiry":"2018-08-02","message":"Data not entered on time."}
                    ],
                      "images":["https://upload.wikimedia.org/wikipedia/commons/2/22/Browser_usage_on_wikimedia_pie_chart.png",
-                     "https://upload.wikimedia.org/wikipedia/commons/4/4f/ASCII_Code_Chart.svg"
+                     "https://berrypetroleumco.sharepoint.com/:i:/r/Branding%20Standards/New%20Berry%20Logos%207-9-2018/Berry%20-%20Company,%20LLC%20Logos/PNGs/Berry_CompanyLLC_logo-V-RGB.png?csf=1&e=mrvClK"
                    ]
                   }
 
-        response = requests.post(flow_trigger_url, data = json.dumps(payload))
+        LOGGER.debug( json.dumps(payload) )
+        response = requests.post(flow_trigger_url, json=payload)
+        LOGGER.debug(response)
+        #response = requests.post(flow_trigger_url, data = json.dumps(payload))
         data = {"response": response.reason.replace('OK','OKAY') + " " +
         str(response.status_code)}
         self.speak_dialog("SummaryResponse", data)
